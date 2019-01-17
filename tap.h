@@ -45,7 +45,7 @@ void    tap_end_todo    (void);
 
 #define NO_PLAN          -1
 #define SKIP_ALL         -2
-#define ok(...)          ok_at_loc(__FILE__, __LINE__, (int) __VA_ARGS__, NULL)
+#define ok(...)          ok_at_loc(__FILE__, __LINE__, __VA_ARGS__, NULL)
 #define is(...)          is_at_loc(__FILE__, __LINE__, __VA_ARGS__, NULL)
 #define isnt(...)        isnt_at_loc(__FILE__, __LINE__, __VA_ARGS__, NULL)
 #define cmp_ok(...)      cmp_ok_at_loc(__FILE__, __LINE__, __VA_ARGS__, NULL)
@@ -67,7 +67,7 @@ void    tap_end_todo    (void);
 
 #ifdef _WIN32
 #define like(...)        tap_skip(1, "like is not implemented on Windows")
-#define unlike           tap_skip(1, "unlike is not implemented on Windows")
+#define unlike(...)      tap_skip(1, "unlike is not implemented on Windows")
 #define dies_ok_common(...) \
                          tap_skip(1, "Death detection is not supported on Windows")
 #else
