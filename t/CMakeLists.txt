@@ -8,6 +8,11 @@ add_executable (cmpok
 target_link_libraries (cmpok
 	tap)
 
+add_executable (diag
+	diag.c)
+target_link_libraries (diag
+	tap)
+
 add_executable (diesok
 	diesok.c)
 target_link_libraries (diesok
@@ -21,11 +26,6 @@ target_link_libraries (is
 add_executable (like
 	like.c)
 target_link_libraries (like
-	tap)
-
-add_executable (notediag
-	notediag.c)
-target_link_libraries (notediag
 	tap)
 
 add_executable (simple
