@@ -47,6 +47,7 @@ tap_plan (int tests, const char *fmt, ...) {
         va_end(args);
         printf("1..0 ");
         diag("SKIP %s\n", why);
+        free(why);
         exit(0);
     }
     if (tests != NO_PLAN) {
