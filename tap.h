@@ -4,8 +4,8 @@ Copyright 2012 Jake Gelbman <gelbman@gmail.com>
 This file is licensed under the LGPL
 */
 
-#ifndef __TAP_H__
-#define __TAP_H__
+#ifndef LIBTAP__TAP_H
+#define LIBTAP__TAP_H
 
 #ifdef __cplusplus
 extern "C" {

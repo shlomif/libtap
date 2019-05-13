@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.6)
 project (tap C)
 
-option (LIBTAP_TESTS "Build libtap tests" OFF)
+option (LIBTAP_TESTS "Build libtap tests" ON)
 
 include_directories (
 	${CMAKE_CURRENT_SOURCE_DIR})
@@ -19,4 +19,8 @@ if (LIBTAP_TESTS)
 	add_subdirectory (t)
 	add_test (prove
 		${CMAKE_COMMAND} -E chdir ${CMAKE_CURRENT_SOURCE_DIR} prove)
+    ADD_CUSTOM_TARGET(
+        "check"
+        "make" "test"
+    )
 endif ()
