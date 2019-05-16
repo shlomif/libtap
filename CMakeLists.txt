@@ -4,6 +4,7 @@ project (tap C)
 option (LIBTAP_TESTS "Build libtap tests" ON)
 option (BUILD_STATIC_LIBRARY "Whether to build the static library (which takes more time)" ON)
 
+SET(CPACK_PACKAGE_NAME "tap")
 include_directories (
 	${CMAKE_CURRENT_SOURCE_DIR})
 
@@ -47,6 +48,19 @@ INSTALL(
 )
 install (FILES tap.h
 	DESTINATION "include")
+
+CONFIGURE_FILE(
+    ${CMAKE_CURRENT_SOURCE_DIR}/lib${CPACK_PACKAGE_NAME}.pc.in
+    ${CMAKE_CURRENT_BINARY_DIR}/lib${CPACK_PACKAGE_NAME}.pc
+    @ONLY
+)
+
+INSTALL(
+    FILES
+        "${CMAKE_CURRENT_BINARY_DIR}/lib${CPACK_PACKAGE_NAME}.pc"
+    DESTINATION
+        "lib${LIB_SUFFIX}/pkgconfig"
+)
 
 if (LIBTAP_TESTS)
 	enable_testing ()
